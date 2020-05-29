@@ -1,0 +1,31 @@
+{
+  "name": "dynalist-archiver",
+  "version": "0.0.1",
+  "description": "A Node.JS module for archiving finished tasks in Dynalist documents",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lasar/dynalist-archiver.git"
+  },
+  "keywords": [
+    "dynalist",
+    "nodejs"
+  ],
+  "author": "Lasar Liepins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lasar/dynalist-archiver/issues"
+  },
+  "homepage": "https://github.com/lasar/dynalist-archiver#readme",
+  "dependencies": {
+    "dynalist-js": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "should": "^13.2.3",
+    "sleep-promise": "^8.0.1"
+  }
+}
