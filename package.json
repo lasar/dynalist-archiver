@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/lasar/dynalist-archiver#readme",
   "dependencies": {
-    "dynalist-js": "^1.0.0"
+    "dynalist-js": "^1.0.0",
+    "luxon": "^1.24.1"
   },
   "devDependencies": {
     "mocha": "^7.1.2",
