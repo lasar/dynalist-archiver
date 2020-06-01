@@ -2,60 +2,34 @@
 
 ## Methods
 
-### Setup
+`set(OPTIONS)`
 
-`setup.setApiToken(API_TOKEN)`
+`run()`
 
-`setup.getApiToken()`
+## Options
 
-### Source
+`apiToken`: REQUIRED. Dynalist API token
 
-`source.add(DOCUMENT_ID)`
+`modifySource`: Boolean, defaults to false.
 
-`source.get(DOCUMENT_ID)`
+`sourceDocument`: REQUIRED. Source document ID
 
-### Filter
+`itemFilter`: Function. Defaults to simple case `item => item.checked`
 
-`filter.add(SEARCH_STRING)`
+`itemTransform`: Function. Defaults to noop function
 
-`filter.get(SEARCH_STRING)`
+`itemSort`: Function. Defaults to sorting based on modified date
 
-### Transform
+`modifyTarget`: Boolean, defaults to false. 
 
-`transform.modifyAtTag(REPLACEMENT_SYMBOL)`
+`targetDocument`: REQUIRED. Target document ID.
 
-`transform.modifyHashTag(REPLACEMENT_SYMBOL)`
+`targetNode`: Target node ID. Defaults to `root`.
 
-`transform.uncheck()`
+`targetGroup`: Function. Defaults to function that generates a `YYYY-MM-DD` formatted date
 
-`transform.custom(TRANSFORMATION_FUNCTION)`
+`targetGroupOrder`: Integer. -1 to add new groups at the bottom; 0 to add new groups at the top. Defaults to -1.
 
-`transform.getTransformations()`
+`targetItemOrder`: Integer. -1 to add new items at the bottom; 0 to add new items at the top. Defaults to -1.
 
-### Target
-
-`target.setDocument(DOCUMENT_ID)`
-
-`target.getDocument()`
-
-`target.setNode(NODE_ID)`
-
-`target.getNode()`
-
-`target.addParentItem(ITEM_CONTENT)`
-
-`target.getParentItem()`
-
-### Actions
-
-`run.process()`
-
-`run.dry()`
-
-`run.retrieve()`
-
-`run.archive()`
-
-`run.delete()`
-
-`run.getResults()`
+## Examples
