@@ -128,8 +128,10 @@ Archiver.prototype.run_getSource = async function () {
     }
 
     // Extract, sort and transform archivable items
-    this.result.itemsTransformed = this.result.sourceDocument.nodes.filter(this.options.itemFilter).sort(this.options.itemSort).slice(0, this.options.maximumItemsPerRun).map(item => {
-        return this.options.itemTransform(item, this.result);
+    this.result.itemsTransformed = this.result.sourceDocument.nodes.filter(item => {
+        return this.options.itemFilter(item, this.result.sourceDocument)
+    }).sort(this.options.itemSort).slice(0, this.options.maximumItemsPerRun).map(item => {
+        return this.options.itemTransform(item, this.result.sourceDocument);
     });
 
     return true;
