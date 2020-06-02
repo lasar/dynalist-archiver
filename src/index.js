@@ -90,7 +90,7 @@ Archiver.prototype.run = async function () {
 
 Archiver.prototype.run_verifyOptions = function () {
     if (!this.options.apiToken) {
-        this.result.error = {_msg: 'apiToken is required' };
+        this.result.error = {_msg: 'apiToken is required'};
         this.result.success = false;
 
         return false;
@@ -117,14 +117,16 @@ Archiver.prototype.run_verifyOptions = function () {
 Archiver.prototype.run_getSource = async function () {
     this.result.sourceDocument = await this.dyn.readDocument(this.options.sourceDocument);
 
-    if(!this.result.sourceDocument._success) {
+    if (!this.result.sourceDocument._success) {
         this.result.error = this.result.sourceDocument;
         this.result.success = false;
         return false;
     }
 
     // Extract, sort and transform archivable items
-    this.result.itemsTransformed = this.result.sourceDocument.nodes.filter(this.options.itemFilter).sort(this.options.itemSort).slice(0, this.options.maximumItemsPerRun).map(this.options.itemTransform);
+    this.result.itemsTransformed = this.result.sourceDocument.nodes.filter(this.options.itemFilter).sort(this.options.itemSort).slice(0, this.options.maximumItemsPerRun).map(item => {
+        return this.options.itemTransform(item, result);
+    });
 
     return true;
 };
@@ -132,7 +134,7 @@ Archiver.prototype.run_getSource = async function () {
 Archiver.prototype.run_getTarget = async function () {
     this.result.targetDocument = await this.dyn.readDocument(this.options.targetDocument);
 
-    if(!this.result.targetDocument._success) {
+    if (!this.result.targetDocument._success) {
         this.result.error = this.result.targetDocument;
         this.result.success = false;
         return false;
@@ -181,7 +183,7 @@ Archiver.prototype.run_groupItems = async function () {
     if (this.options.modifyTarget) {
         const groupResponse = await this.dyn.editDocument(this.options.targetDocument, newGroups);
 
-        if(!groupResponse._success) {
+        if (!groupResponse._success) {
             this.result.error = groupResponse;
             this.result.success = false;
             return false;
@@ -244,7 +246,7 @@ Archiver.prototype.run_archiveItems = async function () {
         // Insert
         const archiveResponse = await this.dyn.editDocument(this.options.targetDocument, this.result.itemsArchived);
 
-        if(!archiveResponse._success) {
+        if (!archiveResponse._success) {
             this.result.error = archiveResponse;
             this.result.success = false;
             return false;
@@ -276,7 +278,7 @@ Archiver.prototype.run_deleteItems = async function () {
         // Delete
         const deleteResponse = await this.dyn.editDocument(this.options.sourceDocument, this.result.itemsDeleted);
 
-        if(!deleteResponse._success) {
+        if (!deleteResponse._success) {
             this.result.error = deleteResponse;
             this.result.success = false;
             return false;
