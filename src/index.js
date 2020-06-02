@@ -5,14 +5,14 @@ let Archiver = function () {
 
 Archiver.prototype.options = {
     apiToken: null,
-    modifySource: false,
     sourceDocument: null,
+    modifySource: false,
     itemFilter: item => item.checked,
     itemTransform: item => item,
     itemSort: (a, b) => a.modified > b.modified ? 1 : -1,
-    modifyTarget: false,
     targetDocument: null,
     targetNode: 'root',
+    modifyTarget: false,
     targetGroup: function (item) {
         // YYYY-MM-DD
         return new Date(item.modified).toISOString().replace(/T.*/, '');
