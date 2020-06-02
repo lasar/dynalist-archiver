@@ -45,10 +45,14 @@ Archiver.prototype.set = function (options) {
             this.options[o] = options[o];
         }
     }
+
+    return this;
 };
 
 Archiver.prototype.reset = function () {
     this.result = {...this.resultTemplate};
+
+    return this;
 };
 
 Archiver.prototype.run = async function () {
