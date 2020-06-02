@@ -1,7 +1,7 @@
 {
   "name": "dynalist-archiver",
-  "version": "0.0.1",
-  "description": "A Node.JS module for archiving finished tasks in Dynalist documents",
+  "version": "1.0.0",
+  "description": "A Node.JS module for archiving items in Dynalist documents",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha"
@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/lasar/dynalist-archiver#readme",
   "dependencies": {
-    "dynalist-js": "^1.0.0",
-    "luxon": "^1.24.1"
+    "dynalist-js": "^1"
   },
   "devDependencies": {
     "mocha": "^7.1.2",
