@@ -33,3 +33,13 @@
 `targetItemOrder`: Integer. -1 to add new items at the bottom; 0 to add new items at the top. Defaults to -1.
 
 ## Examples
+
+## Custom handling
+
+If you want to do something entirely different, there are some approaches:
+
+Just use dynalist-js and write your own code. Fetching the right items is not that complicated.
+
+Set `modifySource` and `modifyTarget` to `false`, then use data in the result object to do whatever you want to do. Or set `modifySource` to true so archived items will be deleted without actually using an archive document (you still have to supply a valid document ID, but it will not be modified.)
+
+Look at the `run` method and Pick out the things you need, overwrite/remove/add everything else.
