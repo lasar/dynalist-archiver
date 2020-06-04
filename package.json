@@ -1,6 +1,6 @@
 {
   "name": "dynalist-archiver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.JS module for archiving items in Dynalist documents",
   "main": "src/index.js",
   "scripts": {
