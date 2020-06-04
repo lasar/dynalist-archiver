@@ -35,7 +35,7 @@ Archiver.prototype.result = {
     success: null,
 };
 
-Archiver.prototype.resultTemplate = {...Archiver.prototype.result};
+Archiver.prototype.resultTemplate = Archiver.prototype.result;
 
 Archiver.prototype.dyn = null;
 
@@ -50,7 +50,7 @@ Archiver.prototype.set = function (options) {
 };
 
 Archiver.prototype.reset = function () {
-    this.result = {...this.resultTemplate};
+    this.result = JSON.parse(JSON.stringify(this.resultTemplate));
 
     return this;
 };
